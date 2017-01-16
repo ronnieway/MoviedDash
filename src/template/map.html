@@ -1,0 +1,25 @@
+<div class="mapMax" ng-controller="getMap as map">
+	<h2 class="dashHeaders">Geo data</h2>
+	<p class="tableDesc">Here is a geo data for the biggest aglomerations in the world. Supposing that each big aglomeration has movie theaters, we can expect to have some movie business there. Map markers are clustered for the better view. Below is tha able data for these aglomerations that can be filtered by any column.</p>
+	<div id="map" style="width:95vw; height:70vh;">
+	</div>
+	<br>
+	<div>
+		<p>
+			<label for="filterTable">Filter table by city or country</label>
+			<input type="text" class="form-control" id="filterTable" placeholder="just start entering text" ng-model="filterCities">
+		</p>
+		<table class="table table-hover">
+			<tr>
+				<th>#</th>
+				<th>Location</th>
+				<th>Country</th>
+			</tr>
+			<tr ng-repeat="x in cities | filter: filterCities">
+				<td>{{ $index + 1 }}</td>
+				<td>{{ x[0] }}</td>
+				<td>{{ x[1] }}</td>
+			</tr>
+		</table>
+	</div>
+</div>

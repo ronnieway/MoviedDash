@@ -1,0 +1,97 @@
+<div class="mapD" ng-controller="getMap as map">
+	<h3 class="dashHeaders">Geo data</h3>
+	<div id="map">
+	</div>
+</div>
+
+<div class="chartD table-responsive" ng-controller="getChart as chart">
+	<h3 class="dashHeaders">Top movies in cinema</h3>
+	<table class="table">
+		<tr>
+			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<b class="posterName">{{ charts[0].title }}</b>
+			</td>
+			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<img class="posterImg" ng-src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/{{ charts[0].poster_path }}">
+			</td>
+			<td class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<p class="posterOverview">{{ charts[0].overview }}</p>
+			</td>
+			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<p class="posterStart">{{ charts[0].release_date }}</p>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="newsD" ng-controller="getNews as news">
+	<h3 class="dashHeaders">Latest news</h3>
+	<ul class="newsFeed" ng-repeat="x in news">
+		<li>
+			<a ng-href=" {{x.url}} "> {{x.title}} </a>
+			<i> (from {{x.publishedAt}})</i>
+		</li>
+	</ul>
+</div>
+
+<div class="statD" ng-controller="getStat as stat">
+	<h3 class="dashHeaders">Statistics</h3>
+	<p class="tableDesc">Total movies gross at US market in 2016</p>
+	<table class="table table-hover">
+		<tr>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('num', 'statYear')"># <span class="caret"></span>
+				</button></th>
+			<th class="columnHeader notLink">
+				Month
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('totalGross', 'statYear')">Total gross <span class="caret"></span>
+				</button>
+			</th>					
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('percentYearGross', 'statYear')">% of year <span class="caret"></span>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('movies', 'statYear')">Movies <span class="caret"></span></button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('topMovie', 'statYear')">#1 Movie <span class="caret"></span>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('topMovieGross', 'statYear')">Gross <span class="caret"></span>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('percentMonthGross', 'statYear')">% of month <span class="caret"></span>
+			</th>
+		</tr> 
+		<tr ng-repeat="x in statYear">
+			<td>{{ x.num | number }}</td>
+			<td>{{ x.month | limitTo: 3 }}</td>
+			<td>{{ x.totalGross }}</td>
+			<td>{{ x.percentYearGross }}</td>
+			<td>{{ x.movies }}</td>
+			<td>{{ x.topMovie }}</td>
+			<td>{{ x.topMovieGross }}</td>
+			<td>{{ x.percentMonthGross }}</td>
+		</tr>				
+	</table> 
+</div>
+
+<div id="moreChart" class="text-center">
+	<a class="btn btn-link" role="button" ng-href="#/chart">See full list</a>
+</div>
+<div id="moreStat" class="text-center">
+	<a class="btn btn-link" role="button" ng-href="#/stat">More stats</a>
+</div>
+<div id="moreGeo" class="text-center">
+	<a class="btn btn-link" role="button" ng-href="#/map">Explore data</a>
+</div>
+<div id="MoreNews" class="text-center">
+	<a class="btn btn-link" role="button" ng-href="#/news">Read news</a>
+</div>
+
+						
+						
+						
+						

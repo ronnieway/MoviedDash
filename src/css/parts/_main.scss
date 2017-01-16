@@ -10,9 +10,9 @@
 	height: 40vh;
 	left: 0vw;
 	top: 17vh;
-	overflow: hidden;
-	background-color: slategray;
+	overflow: hidden;	
 	position: absolute;	
+	border: 1px solid lightgray;
 }
 
 .chartMax {
@@ -21,7 +21,6 @@
 	left: 0vw;
 	top: 17vh;
 	overflow-y: scroll;
-	background-color: slategray;
 	position: absolute;	
 }
 
@@ -37,8 +36,8 @@
 	left: 50vw;
 	top: 17vh;
 	overflow: hidden;
-	background-color: purple;
 	position: absolute;
+	border: 1px solid lightgray;
 }
 
 .newsMax {
@@ -47,7 +46,6 @@
 	left: 0vw;
 	top: 17vh;
 	overflow-y: scroll;
-	background-color: purple;
 	position: absolute;
 }
 
@@ -63,8 +61,8 @@
 	height: 40vh;
 	left: 0vw;
 	overflow: hidden;
-	background-color: beige;
 	position: absolute;
+	border: 1px solid lightgray;
 }
 
 .statMax {
@@ -73,7 +71,6 @@
 	left: 0vw;
 	top: 17vh;
 	overflow-y: scroll;
-	background-color: beige;
 	position: absolute;
 }
 
@@ -89,8 +86,8 @@
 	left: 50vw;
 	top: 57vh;
 	overflow: hidden;
-	background-color: goldenrod;
 	position: absolute;
+	border: 1px solid lightgray;
 }
 
 .mapMax {
@@ -99,12 +96,71 @@
 	left: 0vw;
 	top: 17vh;
 	overflow-y: scroll;
-	background-color: goldenrod;
 	position: absolute;
 }
-/* end MAIN PART STYLES */
 
 #map {
 	width:50vw;
 	height:40vh;
+	border: 1px solid lightgray;
+	margin: 0 auto;
 }
+
+.dashHeaders {
+	padding-left: 1vw;
+}
+
+.posterName {
+	font-size: 1.5vw;
+	color: indigo;
+}
+
+.posterImg {
+	max-height: 25vh;
+	border: 1px solid lightgray;
+}
+
+.posterOverview {
+	font-size: 1.2vw;
+	color: indigo;
+}
+
+.posterStart {
+	font-size: 1.2vw;
+	color: indigo;
+}
+
+.newsFeed li {
+	padding-right: 3vw;
+	font-size: 1.2vw;
+}
+
+.newsFeed li a{
+	color: indigo;
+}
+
+.tableDesc {
+	color: indigo;
+	font-size: 1.3vw;
+	padding-left: 1vw;
+}
+
+.columnHeader, .columnHeader a, .columnHeader button {
+	font-size: 1.2vw !important;
+	color: indigo;
+}
+
+.notLink {
+	line-height: 5vh !important;
+	font-weight: normal !important;
+}
+
+#filterTable {
+	margin: 0 2vw auto;
+	width: 95vw;
+}
+
+.chart {
+	background-color: white !important;
+}
+/* end MAIN PART STYLES */

@@ -1,0 +1,190 @@
+<div class="statMax" ng-controller="getStat as stat">
+	<h2 class="dashHeaders">Statistics</h2>
+	<p class="tableDesc">Total movies gross at US market in 2016 by month, and comparing to the top movie gross by month</p>
+	<table class="table table-hover">
+		<tr>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('num', 'statYear')"># <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader notLink">
+				Month
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('totalGross', 'statYear')">Total gross <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('percentYearGross', 'statYear')">% of year gross <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('movies', 'statYear')">Movies <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('topMovie', 'statYear')">#1 Movie <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('topMovieGross', 'statYear')">Top movie gross <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('percentMonthGross', 'statYear')">% of month gross <span class="caret"></span>
+				</button>
+			</th>
+		</tr>
+		<tr ng-repeat="x in statYear">
+			<td>{{ x.num }}</td>
+			<td>{{ x.month | limitTo: 3}}</td>
+			<td>{{ x.totalGross }}</td>
+			<td>{{ x.percentYearGross }}</td>
+			<td>{{ x.movies }}</td>
+			<td>{{ x.topMovie }}</td>
+			<td>{{ x.topMovieGross }}</td>
+			<td>{{ x.percentMonthGross }}</td>
+		</tr>
+	</table>
+	<br>
+	<canvas id="line" class="chart chart-line" chart-data="dataY" chart-labels="labelsY" chart-series="seriesY" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+	</canvas>
+	<br>
+	<p class="tableDesc">Movies data from the January 2017. Comparing total month movie gross vs first week gross.</p>
+	<table class="table table-hover">
+		<tr>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('number1', 'statLast1')"># <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('name1', 'statLast1')">Movie <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('totalGross1', 'statLast1')">Total gross <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('firstWeekGross1', 'statLast1')">1st week gross <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('cinemas1', 'statLast1')">Cinemas <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('startDate1', 'statLast1')">Start date <span class="caret"></span>
+				</button>
+			</th>
+			<th class="columnHeader">
+				<button type="button" class="btn btn-link" ng-click="order('finishDate1', 'statLast1')">Finish date <span class="caret"></span>
+				</button>
+			</th>
+		</tr>
+		<tr ng-repeat="x in statLast1">
+			<td>{{ x.number1 }}</td>
+			<td>{{ x.name1 }}</td>
+			<td>{{ x.totalGross1 }}</td>
+			<td>{{ x.firstWeekGross1 }}</td>
+			<td>{{ x.cinemas1 }}</td>
+			<td>{{ x.startDate1 }}</td>
+			<td>{{ x.finishDate1 }}</td>
+		</tr>
+	</table>
+	<br>
+	<canvas id="horizontal" class="chart chart-horizontal-bar" chart-data="data1" chart-labels="labels1" chart-series="series1">
+	</canvas>
+	<br>
+	<p class="tableDesc">Movies data from the December 2016. Comparing total month movie gross vs first week gross.</p>
+		<table class="table table-hover">
+			<tr>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('number2', 'statLast2')"># <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('name2', 'statLast2')">Movie <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('totalGross2', 'statLast2')">Total gross <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('firstWeekGross2', 'statLast2')">1st week gross <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('cinemas2', 'statLast2')">Cinemas <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('startDate2', 'statLast2')">Start date <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('finishDate2', 'statLast2')">Finish date <span class="caret"></span>
+					</button>
+				</th>
+			</tr>
+			<tr ng-repeat="x in statLast2">
+				<td>{{ x.number2 }}</td>
+				<td>{{ x.name2 }}</td>
+				<td>{{ x.totalGross2 }}</td>
+				<td>{{ x.firstWeekGross2 }}</td>
+				<td>{{ x.cinemas2 }}</td>
+				<td>{{ x.startDate2 }}</td>
+				<td>{{ x.finishDate2 }}</td>
+			</tr>
+		</table>
+		<br>
+		<canvas id="horizontal" class="chart chart-horizontal-bar" chart-data="data2" chart-labels="labels2" chart-series="series2">
+		</canvas>
+		</br>
+		<p class="tableDesc">Movies data from the November 2016. Comparing total month movie gross vs first week gross.</p>
+		<table>
+			<tr>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('number3', 'statLast3')"># <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('name3', 'statLast3')">Movie <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('totalGross3', 'statLast3')">Total gross <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('firstWeekGross3', 'statLast3')">1st week gross <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('cinemas3', 'statLast3')">Cinemas <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('startDate3', 'statLast3')">Start date <span class="caret"></span>
+					</button>
+				</th>
+				<th class="columnHeader">
+					<button type="button" class="btn btn-link" ng-click="order('finishDate3', 'statLast3')">Finish date <span class="caret"></span>
+					</button>
+				</th>
+			</tr>
+			<tr ng-repeat="x in statLast3">
+				<td>{{ x.number3 }}</td>
+				<td>{{ x.name3 }}</td>
+				<td>{{ x.totalGross3 }}</td>
+				<td>{{ x.firstWeekGross3 }}</td>
+				<td>{{ x.cinemas3 }}</td>
+				<td>{{ x.startDate3 }}</td>
+				<td>{{ x.finishDate3 }}</td>
+			</tr>
+		</table>
+		<br>
+	<canvas id="horizontal" class="chart chart-horizontal-bar" chart-data="data3" chart-labels="labels3" chart-series="series3">
+	</canvas>
+</div>

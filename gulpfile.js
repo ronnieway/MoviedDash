@@ -28,6 +28,7 @@ var myPath = {
 		allImg: 'dist/img/',
 		allFonts: 'dist/fonts/',
 		allOthers: 'dist/others/',
+		allParts: 'dist/template/',
 		readme: 'dist/',
 		bower: 'dist/bower_components/'
 	},
@@ -48,6 +49,7 @@ var myPath = {
 		allFonts: 'src/fonts/**/*.*',
 		allOthers: 'src/others/**/*.*',
 		allPages: 'src/*.html',
+		allParts: 'src/template/*.html',
 		allJS: 'src/js/*.js',
 		readme: 'src/README.md',
 		mainJade: 'src/js/main.jade',
@@ -233,7 +235,7 @@ gulp.task('jsRelease', function() {
 		babel({
 			presets: [es2015]
 		}),
-		uglify(),
+//		uglify(),
 		gulp.dest(myPath.dist.mainJS))
 	.on('error', notify.onError(function(err) {
 		return {
@@ -248,7 +250,7 @@ gulp.task('otherJSRelease', function() {
 		babel({
 			presets: [es2015]
 		}),
-		uglify(),
+//		uglify(),
 		gulp.dest(myPath.dist.indexFolder))
 	.on('error', notify.onError(function(err) {
 		return {
@@ -263,7 +265,7 @@ gulp.task('allJSRelease', function() {
 		babel({
 			presets: [es2015]
 		}),
-		uglify(),
+//		uglify(),
 		gulp.dest(myPath.dist.mainJS))
 	.on('error', notify.onError(function(err) {
 		return {
@@ -309,6 +311,18 @@ gulp.task('others', function() {
 	}));
 });
 
+gulp.task('parts', function() {
+	return multipipe(
+		gulp.src(myPath.src.allParts),
+		remember('parts'),
+		gulp.dest(myPath.dist.allParts))
+	.on('error', notify.onError(function(err) {
+		return {
+			message: err.message
+		};
+	}));
+});
+
 gulp.task('pages', function() {
 	return multipipe(
 		gulp.src(myPath.src.allPages),
@@ -320,7 +334,6 @@ gulp.task('pages', function() {
 		};
 	}));
 });
-
 gulp.task('bower', function() {
 	return multipipe(
 		gulp.src(myPath.src.bower),
@@ -383,14 +396,16 @@ gulp.task('watch', function() {
 
 	gulp.watch(myPath.src.allPages, gulp.series('pages'));
 
+	gulp.watch(myPath.src.allParts, gulp.series('parts'));
+
 	gulp.watch(myPath.src.allHTML, gulp.series('injectHTML', 'pages'));
 
 });
 
-gulp.task('build', gulp.series('clean', 'bower', 'cleanMainJS', 'cleanMainSCSS', 'injectJS', 'injectHTML', 'css', 'js', 'otherJS', 'allJS', 'jsons', 'pages', 'img', 'others', 'fonts'));
+gulp.task('build', gulp.series('clean', 'bower', 'cleanMainJS', 'cleanMainSCSS', 'injectJS', 'injectHTML', 'css', 'js', 'otherJS', 'allJS', 'jsons', 'pages', 'parts', 'img', 'others', 'fonts'));
 
 gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'server')));
 
-gulp.task('buildRelease', gulp.series('clean', 'bower', 'cssRelease', 'jsRelease', 'otherJSRelease', 'allJSRelease', 'jsons', 'pages', 'img', 'others', 'fonts'));
+gulp.task('buildRelease', gulp.series('clean', 'bower', 'cssRelease', 'jsRelease', 'otherJSRelease', 'allJSRelease', 'jsons', 'pages', 'parts', 'img', 'others', 'fonts'));
 
 gulp.task('serve', gulp.series('buildRelease', gulp.parallel('watch','server')));

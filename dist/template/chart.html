@@ -1,0 +1,20 @@
+<div class="chartMax table-responsive" ng-controller="getChart as chart">
+	<h2 class="dashHeaders">Top movies in cinemas</h2>
+	<p class="tableDesc">This is a list of movies that are currently playing in theatres.</p>
+	<table class="table table-hover">
+		<tr ng-repeat="x in charts">
+			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<b class="posterName">{{ x.title }}</b>
+			</td>
+			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<img class="posterImg" src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/{{ x.poster_path }}">
+			</td>
+			<td class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<b class="posterOverview">{{ x.overview }}</b>
+			</td>
+			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<b class="posterStart">{{ x.release_date }}</b>
+			</td>						
+		</tr>
+	</table>
+</div>

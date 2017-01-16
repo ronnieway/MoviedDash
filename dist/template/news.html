@@ -1,0 +1,16 @@
+<div class="newsMax" ng-controller="getNews as news">
+	<h2 class="dashHeaders">Latest news</h2>
+	<p class="tableDesc">Here are latest entertainment news from 2 different sources. Request for updates is sent every 2 minutes, but news are changed not so often.</p>
+	<ul ng-repeat="x in news">
+		<li>
+			<a ng-href=" {{x.url}} "> {{x.title}} </a>
+			<i> (from {{ x.publishedAt }})<i/>
+		</li> 
+	</ul>
+	<ul ng-repeat="y in news2"> 
+		<li>
+			<a ng-href=" {{y.url}} "> {{y.title}} </a>
+			<i> (from {{ y.publishedAt }})<i/>
+		</li>
+	</ul>
+</div>

@@ -1,33 +1,73 @@
 <header class="header" id="header">
-	<div class="name" ng-controller="getCurrent as currentPage">
-		<a href="/">MovieDash</a>
-		<div ng-if="isCurrentPage('/')">
-			Description
-		</div>
-		<div ng-if="isCurrentPage('/map')">
-			Map
-		</div>
-		<div  ng-if="isCurrentPage('/chart')">
-			Chart
-		</div>
-		<div  ng-if="isCurrentPage('/news')">
-			News
-		</div>
-		<div  ng-if="isCurrentPage('/stat')">
-			Stat
-		</div>
-	</div> 
-	<div class="motto">
-		You can check the main movie data, including movies at cinemas, top grossing films, news regarding film industry and the related people here.
-	</div>   
-	<div class="trailer" ng-controller="getTrailer as trailer">
-		<button ng-click="showPopup();">Watch trailer</button>	
-		<div id="youtubeDiv" ng-show="showMe">
-			<div>
-				Watch the trailer 
-				<button id="closeTrailer" ng-click="showPopup();">Close</button>
+	<div class="row">
+		<div class="name col-xs-12 col-sm-12 col-md-3 col-lg-3" ng-controller="getCurrent as currentPage">
+			<h1 id="siteTitle" class="text-center">
+				<a href="/#/">MovieDash</a>
+			</h1>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="isCurrentPage('/')">
+					<div class="currentPage text-center">
+						<b>Movie business data</b>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="isCurrentPage('/map')">
+					<div class="currentPage text-center">
+						<b>Geo data</b>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="isCurrentPage('/chart')">
+					<div class="currentPage text-center">
+						<b>Now showing</b>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="isCurrentPage('/news')">
+					<div class="currentPage text-center">
+						<b>News</b>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="isCurrentPage('/stat')">
+					<div class="currentPage text-center">
+						<b>Statistics</b>
+					</div>
+				</div>
 			</div>
 		</div> 
+		<div class="rest col-xs-12 col-sm-12 col-md-9 col-lg-9">
+			<div class="row">
+				<div class="menuBar col-md-9 col-lg-9"> 
+					<nav class="nav" id="nav">
+						<a class="btn btn-primary btn-lg" role="button" ng-href="#/">Home</a>
+						<a class="btn btn-primary btn-lg" role="button" ng-href="#/map">Geo data</a>
+						<a class="btn btn-primary btn-lg" role="button" ng-href="#/chart">Now showing</a>
+						<a class="btn btn-primary btn-lg" role="button" ng-href="#/news">News</a>
+						<a class="btn btn-primary btn-lg" role="button" ng-href="#/stat">Statistics</a>
+					</nav>
+				</div>
+				<div class="trailer col-md-3 col-lg-3" ng-controller="getTrailer as trailer">
+					<button class="btn btn-primary btn-lg right-block" ng-click="showPopup();">Watch top trailer</button>	
+					<div id="youtubeDiv" ng-show="showMe">
+						<div>
+							<h3 id=trailerHeader>Watch the trailer</h3> 
+							<button id="closeTrailer" type="button" class="close" aria-label="Close" ng-click="showPopup();"><span aria-hidden="true">&times;</span></button>
+						</div>
+					</div> 
+				</div>
+			</div>
+			<div class="row"> 		 
+				<div class="motto col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="siteDescription">
+						Check the movies currently showing at cinemas, top grossing films from current month and last year, news regarding film industry and the geospatial data from biggest cities through out the world.
+					</div>
+				</div> 
+			</div>
+		</div>
 	</div> 
-	 
 </header>

@@ -5,197 +5,23 @@ var app = angular.module('app', ['ngRoute', 'chart.js']);
 app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		template:
-			'<div class="mapD" ng-controller="getMap as map">\n' +
-				'<div id="map">\n' +
-				'</div>\n' +
-			'</div>\n' +     
-			'<div class="chartD" ng-controller="getChart as chart">\n' +	
-				'<table>\n' +
-					'<tr>\n' +
-						'<td>{{ charts[0].title }}</td>\n' +
-						'<td><img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/' + '{{ charts[0].poster_path }}"></td>\n' +
-						'<td>{{ charts[0].release_date }}</td>\n' +
-					'</tr>\n' +
-				'</table>\n' +
-			'</div>\n' +   
-			'<div class="newsD" ng-controller="getNews as news">\n' +
-				'<ul ng-repeat="x in news">\n' + 
-					'<li><a href="' + '{{x.url}}' + '"> {{x.title}} </a><i> (from {{x.publishedAt}})<i/></li>' + 
-				'</ul>' + 
-			'</div>\n' +   
-			'<div class="statD" ng-controller="getStat as stat">\n' + 
-				'<table>\n' +
-					'<tr>\n' +
-						'<th><button ng-click="order(\'num\', \'statYear\')">#</button></th>\n' +
-						'<th>Month</th>\n' +
-						'<th><button ng-click="order(\'totalGross\', \'statYear\')">Total gross</button></th>\n' +						
-						'<th><button ng-click="order(\'percentYearGross\', \'statYear\')">% of year gross</th>\n' +
-						'<th><button ng-click="order(\'movies\', \'statYear\')">Movies</button></th>\n' +
-						'<th><button ng-click="order(\'topMovie\', \'statYear\')">#1 Movie</th>\n' +
-						'<th><button ng-click="order(\'topMovieGross\', \'statYear\')">Gross</th>\n' +
-						'<th><button ng-click="order(\'percentMonthGross\', \'statYear\')">% of total gross in month</th>\n' +
-					'</tr>\n' +  
-					'<tr ng-repeat="x in statYear">\n' +
-						'<td>{{ x.num | number }}</td>\n' +
-						'<td>{{ x.month | limitTo: 3 }}</td>\n' +
-						'<td>{{ x.totalGross }}</td>\n' +
-						'<td>{{ x.percentYearGross }}</td>\n' +
-						'<td>{{ x.movies }}</td>\n' +
-						'<td>{{ x.topMovie }}</td>\n' +
-						'<td>{{ x.topMovieGross }}</td>\n' +
-						'<td>{{ x.percentMonthGross }}</td>\n' +
-					'</tr>\n' +					
-				'</table>\n' +  
-			'</div>\n' 
+		templateUrl : 'template/dash.html'		
 	})
 	.when('/map', {
-		template:
-			'<div class="mapMax" ng-controller="getMap as map">\n' +
-				'<div id="map" style="width:95vw; height:70vh;">\n' +
-				'</div>\n' +
-				'</br>\n' +
-				'<div>\n' +
-					'<p><input type="text" ng-model="filterCities"></p>\n' +
-					'<table>\n' +
-						'<tr>\n' +
-							'<th>#</th>\n' +
-							'<th>Location</th>\n' +
-							'<th>Country</th>\n' +
-						'</tr>\n' +  
-						'<tr ng-repeat="x in cities | filter: filterCities">\n' +
-							'<td>{{ $index + 1 }}</td>\n' +
-							'<td>{{ x[0] }}</td>\n' +
-							'<td>{{ x[1] }}</td>\n' +
-						'</tr>\n' +
-					'</table>\n' +
-				'</div>\n' +
-			'</div>\n'
+		templateUrl : 'template/map.html'		
 	})
 	.when('/chart', {
-		template:
-			'<div class="chartMax" ng-controller="getChart as chart">\n' +
-			'<table>\n' +
-				'<tr ng-repeat="x in charts">\n' +
-					'<td>{{ x.title }}</td>\n' +
-					'<td><img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/' + '{{ x.poster_path }}"></td>\n' +
-					'<td>{{ x.release_date }}</td>\n' +
-				'</tr>\n' +
-			'</table>\n' +
-			'</div>\n' 
+		templateUrl : 'template/chart.html'	 
 	})
 	.when('/news', {
-		template:
-			'<div class="newsMax" ng-controller="getNews as news">\n' +
-				'<ul ng-repeat="x in news">\n' + 
-					'<li><a href="' + '{{x.url}}' + '"> {{x.title}} </a><i> (from {{x.publishedAt}})<i/></li>' + 
-				'</ul>' +
-				'<ul ng-repeat="x in news2">\n' + 
-					'<li><a href="' + '{{x.url}}' + '"> {{x.title}} </a><i> (from {{x.publishedAt}})<i/></li>' + 
-				'</ul>' +
-			'</div>\n' 
+		templateUrl : 'template/news.html'	 
 	})
 	.when('/stat', {
-		template:
-			'<div class="statMax" ng-controller="getStat as stat">\n' +
-				'<table>\n' +
-					'<tr>\n' +
-						'<th><button ng-click="order(\'num\', \'statYear\')">#</button></th>\n' +
-						'<th>Month</th>\n' +
-						'<th><button ng-click="order(\'totalGross\', \'statYear\')">Total gross</button></th>\n' +
-						'<th><button ng-click="order(\'percentYearGross\', \'statYear\')">% of year gross</button></th>\n' +
-						'<th><button ng-click="order(\'movies\', \'statYear\')">Movies</button></th>\n' +
-						'<th><button ng-click="order(\'topMovie\', \'statYear\')">#1 Movie</button></th>\n' +
-						'<th><button ng-click="order(\'topMovieGross\', \'statYear\')">Gross</button></th>\n' +
-						'<th><button ng-click="order(\'percentMonthGross\', \'statYear\')">% of total gross in month</button></th>\n' +
-					'</tr>\n' +  
-					'<tr ng-repeat="x in statYear">\n' +
-						'<td>{{ x.num }}</td>\n' +
-						'<td>{{ x.month | limitTo: 3}}</td>\n' +
-						'<td>{{ x.totalGross }}</td>\n' +
-						'<td>{{ x.percentYearGross }}</td>\n' +
-						'<td>{{ x.movies }}</td>\n' +
-						'<td>{{ x.topMovie }}</td>\n' +
-						'<td>{{ x.topMovieGross }}</td>\n' +
-						'<td>{{ x.percentMonthGross }}</td>\n' +
-					'</tr>\n' +
-				'</table>\n' +
-				'<canvas id="line" class="chart chart-line" chart-data="dataY" chart-labels="labelsY" chart-series="seriesY" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">\n' +
-				'</canvas>\n' +  
-				'</br>\n' +
-				'<table>\n' +
-					'<tr>\n' +
-						'<th><button ng-click="order(\'number1\', \'statLast1\')">#</button></th>\n' +
-						'<th><button ng-click="order(\'name1\', \'statLast1\')">Movie</button></th>\n' +
-						'<th><button ng-click="order(\'totalGross1\', \'statLast1\')">Total gross</button></th>\n' +
-						'<th><button ng-click="order(\'firstWeekGross1\', \'statLast1\')">1st week gross</button></th>\n' +
-						'<th><button ng-click="order(\'cinemas1\', \'statLast1\')">Cinemas</button></th>\n' +
-						'<th><button ng-click="order(\'startDate1\', \'statLast1\')">Start date</button></th>\n' +
-						'<th><button ng-click="order(\'finishDate1\', \'statLast1\')">Finish date</button></th>\n' +
-					'</tr>\n' +  
-					'<tr ng-repeat="x in statLast1">\n' +
-						'<td>{{ x.number1 }}</td>\n' +
-						'<td>{{ x.name1 }}</td>\n' +
-						'<td>{{ x.totalGross1 }}</td>\n' +
-						'<td>{{ x.firstWeekGross1 }}</td>\n' +
-						'<td>{{ x.cinemas1 }}</td>\n' +
-						'<td>{{ x.startDate1 }}</td>\n' +
-						'<td>{{ x.finishDate1 }}</td>\n' +
-					'</tr>\n' +
-				'</table>\n' + 
-				'<canvas id="horizontal" class="chart chart-horizontal-bar" chart-data="data1" chart-labels="labels1" chart-series="series1">\n' +
-				'</canvas>\n' + 
-				'</br>\n' +
-				'<table>\n' +
-					'<tr>\n' +
-						'<th><button ng-click="order(\'number2\', \'statLast2\')">#</button></th>\n' +
-						'<th><button ng-click="order(\'name2\', \'statLast2\')">Movie</button></th>\n' +
-						'<th><button ng-click="order(\'totalGross2\', \'statLast2\')">Total gross</button></th>\n' +
-						'<th><button ng-click="order(\'firstWeekGross2\', \'statLast2\')">1st week gross</button></th>\n' +
-						'<th><button ng-click="order(\'cinemas2\', \'statLast2\')">Cinemas</button></th>\n' +
-						'<th><button ng-click="order(\'startDate2\', \'statLast2\')">Start date</button></th>\n' +
-						'<th><button ng-click="order(\'finishDate2\', \'statLast2\')">Finish date</button></th>\n' +
-					'</tr>\n' +  
-					'<tr ng-repeat="x in statLast2">\n' +
-						'<td>{{ x.number2 }}</td>\n' +
-						'<td>{{ x.name2 }}</td>\n' +
-						'<td>{{ x.totalGross2 }}</td>\n' +
-						'<td>{{ x.firstWeekGross2 }}</td>\n' +
-						'<td>{{ x.cinemas2 }}</td>\n' +
-						'<td>{{ x.startDate2 }}</td>\n' +
-						'<td>{{ x.finishDate2 }}</td>\n' +
-					'</tr>\n' +
-				'</table>\n' +
-				'<canvas id="horizontal" class="chart chart-horizontal-bar" chart-data="data2" chart-labels="labels2" chart-series="series2">\n' +
-				'</canvas>\n' + 
-				'</br>\n' +
-				'<table>\n' +
-					'<tr>\n' +
-						'<th><button ng-click="order(\'number3\', \'statLast3\')">#</button></th>\n' +
-						'<th><button ng-click="order(\'name3\', \'statLast3\')">Movie</button></th>\n' +
-						'<th><button ng-click="order(\'totalGross3\', \'statLast3\')">Total gross</button></th>\n' +
-						'<th><button ng-click="order(\'firstWeekGross3\', \'statLast3\')">1st week gross</button></th>\n' +
-						'<th><button ng-click="order(\'cinemas3\', \'statLast3\')">Cinemas</button></th>\n' +
-						'<th><button ng-click="order(\'startDate3\', \'statLast3\')">Start date</button></th>\n' +
-						'<th><button ng-click="order(\'finishDate3\', \'statLast3\')">Finish date</button></th>\n' +
-					'</tr>\n' +  
-					'<tr ng-repeat="x in statLast3">\n' +
-						'<td>{{ x.number3 }}</td>\n' +
-						'<td>{{ x.name3 }}</td>\n' +
-						'<td>{{ x.totalGross3 }}</td>\n' +
-						'<td>{{ x.firstWeekGross3 }}</td>\n' +
-						'<td>{{ x.cinemas3 }}</td>\n' +
-						'<td>{{ x.startDate3 }}</td>\n' +
-						'<td>{{ x.finishDate3 }}</td>\n' +
-					'</tr>\n' +
-				'</table>\n' + 
-				'<canvas id="horizontal" class="chart chart-horizontal-bar" chart-data="data3" chart-labels="labels3" chart-series="series3">\n' +
-				'</canvas>\n' +
-			'</div>\n' 
+		templateUrl : 'template/stat.html'		
 	});
 });
 
-app.controller('getStat', function($scope, $http, $filter) {
+app.controller('getStat', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
 	var prevOrder;
 	var reverse = true;
 
@@ -441,17 +267,17 @@ app.controller('getStat', function($scope, $http, $filter) {
 			totalGrossArray, firstWeekGrossArray
 		];
 	});
-});
+}]);
 
-app.controller('getChart', function($scope, $http) {
+app.controller('getChart', ['$scope', '$http', function($scope, $http) {
 	$http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=bbc248f411ec3657bd9844f9bd4a2bda&language=en-US&page=1')
 	.then(function(response) {
 		$scope.charts = response.data.results;
 	});
-});
+}]);
 
 
-app.controller('getTrailer', function($scope, $http) {
+app.controller('getTrailer', ['$scope', '$http', function($scope, $http) {
 	var firstMovieID;
 	var theTrailerLink;
 	$http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=bbc248f411ec3657bd9844f9bd4a2bda&language=en-US&page=1')
@@ -470,21 +296,21 @@ app.controller('getTrailer', function($scope, $http) {
 	this.showMe = false;
 	$scope.showPopup = function() {
 		this.showMe = !this.showMe;
-		var myElement = angular.element( document.querySelector('#youtubeDiv'));
+		var myElement = angular.element(document.querySelector('#youtubeDiv'));
 		myElement.append(theTrailerLink);
 	};
 	$scope.hidePopup = function() {
 		this.showMe = false;
 	};
-});
+}]);
 
-app.controller('getCurrent', function($scope, $location) {
+app.controller('getCurrent', ['$scope', '$location', function($scope, $location) {
 	$scope.isCurrentPage = function(path) {
 		return path == $location.path();
 	};
-});	
+}]);	
 
-app.controller('getNews', function($scope, $http) {
+app.controller('getNews', ['$scope', '$http', function($scope, $http) {
 
 	var timerId = setTimeout(function theNews() {
 		$http.get('https://newsapi.org/v1/articles?source=daily-mail&sortBy=latest&apiKey=3e39927ec00f48d4b859103489c06f38')
@@ -501,9 +327,9 @@ app.controller('getNews', function($scope, $http) {
 	}, 0);
 
 	
-});
+}]);
 
-app.controller('getMap', function($scope, $http) {
+app.controller('getMap', ['$scope', '$http', function($scope, $http) {
 	$http.get('../others/cities.csv')
 	.then(function(response) {
 		var geoArray = [];
@@ -541,7 +367,7 @@ app.controller('getMap', function($scope, $http) {
 		var markerCluster = new MarkerClusterer(map, markers,
 		{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 	});
-});
+}]);
 
 function initMap() {
 	var myLatLng = {lat: 30, lng: 0};

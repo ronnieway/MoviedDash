@@ -1,75 +1,131 @@
 /* HEADER STYLES */
 
 .name {
-	width: 15vw;
 	height: 17vh;
-	top: 0;
-	left: 0;
 	overflow: hidden;
-	background-color: green;
-	position: absolute;
 }
 
-.motto {
-	width: 25vw;
+.rest {
 	height: 17vh;
-	top: 0;
-	left: 15vw;
 	overflow: hidden;
-	background-color: indigo;
-	position: absolute;
-}
-
-
-.menuBar {
-	width: 40vw;
-	height: 17vh;
-	top: 0;
-	left: 40vw;
-	overflow: hidden;
-	background-color: cyan;
-	position: absolute;
-}
-
-.trailer {
-	width: 20vw;
-	height: 17vh;
-	top: 0;
-	left: 80vw;
-	overflow: hidden;
-	background-color: brown;
-	position: absolute;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
 }
 
 #youtubeDiv {
 	position: fixed;
-	top: 17vh;
+	top: 12vh;
 	left:10vw;
 	width: 80vw;
-	height: 80vh;
+	height: 85vh;
 	padding: 4vw auto;
 	margin: 0 auto;
-	background-color: white;
+	background-color: beige;
 	z-index: 25;
+	border: 2px solid #265a88;
 }
 
 #youtubeDiv  iframe {
 	position: fixed;
-	top: 17vh;
+	top: 12vh;
 	left:10vw;
 	width: 75vw;
-	height: 80vh;
+	height: 85vh;
 	padding: 4vw;
 	margin: 0 auto;
 }
 
 #closeTrailer {
-	float: right;
-	top: 1vh;
-	right: 10px;
-	width: 5vw;
-	height: 3vh;
+	margin: 0.5vw !important;
+	width: 3vw;
+	height: 3vw;
 	margin: 0;
 	z-index: 33;
+	position: relative;
+	top: - 8vh;
+}
+
+#closeTrailer span {
+	width: 2vw;
+	height: 2vw;
+}
+
+#trailerHeader {
+	padding: 1vh 2vw 1vh 2vw;
+	margin: 0;	
+}
+#siteTitle {
+	color: #265a88;
+	font-size: 3vw;	
+}
+
+#siteTitle a{
+	text-decoration: none;
+	color: #265a88;
+	padding: 1vh 3vw 0 3vw;
+}
+
+#siteTitle a:focus, #siteTitle a:hover{
+	background-color: #265a88;
+	color: white;
+}
+
+.currentPage {
+	min-height: 4vh;
+	padding-top: 1vh;
+	background-color: #265a88;
+	color: white;
+}
+
+.siteDescription {
+	padding: 1vh 2vw 1vh 2vw;
+	margin-top: 1vh;
+	margin-right: 6vw;
+	color: indigo;
+	background-color: beige;
+	border: 1px solid lightgray;
+}
+
+#moreChart {
+	width: 7vw;
+	height: 4vh;
+	top: 52vh;
+	left: 42vw;
+}
+
+#moreStat {
+	width: 7vw;
+	height: 4vh;
+	top: 92vh;
+	left: 42vw;
+}
+
+#moreGeo {
+	width: 7vw;
+	height: 4vh;
+	top: 92vh;
+	left: 92vw;
+}
+
+#MoreNews {
+	width: 7vw;
+	height: 4vh;
+	top: 52vh;
+	left: 92vw;
+}
+
+#moreChart, #moreStat, #moreGeo, #MoreNews {
+	position:fixed;
+	overflow: hidden;
+	z-index: 18;
+	color: white;
+	background-color: #265a88;
+	padding: 0 auto;
+	margin: 0 auto;
+}
+
+#moreChart a, #moreStat a, #moreGeo a, #MoreNews a {
+	color: white;
+	background-color: #265a88;
 }
 /* end HEADER STYLES */
