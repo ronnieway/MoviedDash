@@ -1,3 +1,33 @@
 <header class="header" id="header">
-
+	<div class="name" ng-controller="getCurrent as currentPage">
+		<a href="/">MovieDash</a>
+		<div ng-if="isCurrentPage('/')">
+			Description
+		</div>
+		<div ng-if="isCurrentPage('/map')">
+			Map
+		</div>
+		<div  ng-if="isCurrentPage('/chart')">
+			Chart
+		</div>
+		<div  ng-if="isCurrentPage('/news')">
+			News
+		</div>
+		<div  ng-if="isCurrentPage('/stat')">
+			Stat
+		</div>
+	</div> 
+	<div class="motto">
+		You can check the main movie data, including movies at cinemas, top grossing films, news regarding film industry and the related people here.
+	</div>   
+	<div class="trailer" ng-controller="getTrailer as trailer">
+		<button ng-click="showPopup();">Watch trailer</button>	
+		<div id="youtubeDiv" ng-show="showMe">
+			<div>
+				Watch the trailer 
+				<button id="closeTrailer" ng-click="showPopup();">Close</button>
+			</div>
+		</div> 
+	</div> 
+	 
 </header>

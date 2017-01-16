@@ -25,7 +25,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "multipipe": "^0.3.1"
+    "multipipe": "^0.3.1",
+    "ng-table": "^4.0.0"
   },
   "dependencies": {
     "bower": "^1.7.9"

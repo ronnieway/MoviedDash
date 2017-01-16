@@ -1,3 +1,75 @@
 /* HEADER STYLES */
 
+.name {
+	width: 15vw;
+	height: 17vh;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	background-color: green;
+	position: absolute;
+}
+
+.motto {
+	width: 25vw;
+	height: 17vh;
+	top: 0;
+	left: 15vw;
+	overflow: hidden;
+	background-color: indigo;
+	position: absolute;
+}
+
+
+.menuBar {
+	width: 40vw;
+	height: 17vh;
+	top: 0;
+	left: 40vw;
+	overflow: hidden;
+	background-color: cyan;
+	position: absolute;
+}
+
+.trailer {
+	width: 20vw;
+	height: 17vh;
+	top: 0;
+	left: 80vw;
+	overflow: hidden;
+	background-color: brown;
+	position: absolute;
+}
+
+#youtubeDiv {
+	position: fixed;
+	top: 17vh;
+	left:10vw;
+	width: 80vw;
+	height: 80vh;
+	padding: 4vw auto;
+	margin: 0 auto;
+	background-color: white;
+	z-index: 25;
+}
+
+#youtubeDiv  iframe {
+	position: fixed;
+	top: 17vh;
+	left:10vw;
+	width: 75vw;
+	height: 80vh;
+	padding: 4vw;
+	margin: 0 auto;
+}
+
+#closeTrailer {
+	float: right;
+	top: 1vh;
+	right: 10px;
+	width: 5vw;
+	height: 3vh;
+	margin: 0;
+	z-index: 33;
+}
 /* end HEADER STYLES */

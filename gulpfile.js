@@ -48,6 +48,7 @@ var myPath = {
 		allFonts: 'src/fonts/**/*.*',
 		allOthers: 'src/others/**/*.*',
 		allPages: 'src/*.html',
+		allJS: 'src/js/*.js',
 		readme: 'src/README.md',
 		mainJade: 'src/js/main.jade',
 		indexFolder: 'src/',
@@ -197,6 +198,23 @@ gulp.task('otherJS', function() {
 	}));
 });
 
+gulp.task('allJS', function() {
+	return multipipe(
+		gulp.src(myPath.src.allJS),
+		remember('allJS'),
+		babel({
+			presets: [es2015]
+		}),
+		sourcemaps.init(),
+		sourcemaps.write(),
+		gulp.dest(myPath.dist.mainJS))
+	.on('error', notify.onError(function(err) {
+		return {
+			message: err.message
+		};
+	}));
+});
+
 gulp.task('jsons', function() {
 	return multipipe(
 		gulp.src(myPath.src.jsons),
@@ -232,6 +250,21 @@ gulp.task('otherJSRelease', function() {
 		}),
 		uglify(),
 		gulp.dest(myPath.dist.indexFolder))
+	.on('error', notify.onError(function(err) {
+		return {
+			message: err.message
+		};
+	}));
+});
+
+gulp.task('allJSRelease', function() {
+	return multipipe(
+		gulp.src(myPath.src.allJS),
+		babel({
+			presets: [es2015]
+		}),
+		uglify(),
+		gulp.dest(myPath.dist.mainJS))
 	.on('error', notify.onError(function(err) {
 		return {
 			message: err.message
@@ -334,6 +367,8 @@ gulp.task('watch', function() {
 
 	gulp.watch(myPath.src.jsons, gulp.series('jsons'));
 
+	gulp.watch(myPath.src.allJS, gulp.series('allJS'));
+
 	gulp.watch(myPath.src.partsSCSS, gulp.series('cleanMainSCSS', 'css'));
 
 	gulp.watch(myPath.src.pluginsSCSS, gulp.series('cleanMainSCSS', 'css'));
@@ -352,10 +387,10 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task('build', gulp.series('clean', 'bower', 'cleanMainJS', 'cleanMainSCSS', 'injectJS', 'injectHTML', 'css', 'js', 'otherJS', 'jsons', 'pages', 'img', 'others', 'fonts'));
+gulp.task('build', gulp.series('clean', 'bower', 'cleanMainJS', 'cleanMainSCSS', 'injectJS', 'injectHTML', 'css', 'js', 'otherJS', 'allJS', 'jsons', 'pages', 'img', 'others', 'fonts'));
 
 gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'server')));
 
-gulp.task('buildRelease', gulp.series('clean', 'bower', 'cssRelease', 'jsRelease', 'otherJSRelease', 'jsons', 'pages', 'img', 'others', 'fonts'));
+gulp.task('buildRelease', gulp.series('clean', 'bower', 'cssRelease', 'jsRelease', 'otherJSRelease', 'allJSRelease', 'jsons', 'pages', 'img', 'others', 'fonts'));
 
-gulp.task('release', gulp.series('buildRelease', gulp.parallel('watch','server')));
+gulp.task('serve', gulp.series('buildRelease', gulp.parallel('watch','server')));

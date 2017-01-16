@@ -13,8 +13,9 @@
 @import "settings/_typography.scss";
 @import "parts/_carcass.scss";
 @import "parts/_header.scss";
-@import "parts/_navigation.scss";
-@import "parts/_content.scss";
+@import "parts/_nav.scss";
+@import "parts/_main.scss";
+@import "parts/_aside.scss";
 @import "parts/_footer.scss";
 @import "settings/_media.scss";
 

@@ -1,0 +1,15 @@
+{
+  "name": "router",
+  "homepage": "https://github.com/angular/router",
+  "version": "0.2.0",
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.0",
+    "commit": "79f655bddd2c28a612f72c35ce4c97702ea505d2"
+  },
+  "_source": "git://github.com/angular/router.git",
+  "_target": "0.2.0",
+  "_originalSource": "angular/router",
+  "_direct": true
+}

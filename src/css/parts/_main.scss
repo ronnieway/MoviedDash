@@ -1,0 +1,110 @@
+/* MAIN PART STYLES */
+.chart {
+	width: 100vw;
+	left: 0;
+	background-color: gray;	
+}
+
+.chartD {
+	width: 50vw;
+	height: 40vh;
+	left: 0vw;
+	top: 17vh;
+	overflow: hidden;
+	background-color: slategray;
+	position: absolute;	
+}
+
+.chartMax {
+	width: 100vw;
+	height: 80vh;
+	left: 0vw;
+	top: 17vh;
+	overflow-y: scroll;
+	background-color: slategray;
+	position: absolute;	
+}
+
+.news {
+	width: 100vw;
+	left: 0;
+	background-color: violet;
+}
+
+.newsD {
+	width: 50vw;
+	height: 40vh;
+	left: 50vw;
+	top: 17vh;
+	overflow: hidden;
+	background-color: purple;
+	position: absolute;
+}
+
+.newsMax {
+	width: 100vw;
+	height: 80vh;
+	left: 0vw;
+	top: 17vh;
+	overflow-y: scroll;
+	background-color: purple;
+	position: absolute;
+}
+
+.stat {
+	width: 100vw;
+	left: 0;
+	background-color: white;
+}
+
+.statD {
+	width: 50vw;
+	top: 57vh;
+	height: 40vh;
+	left: 0vw;
+	overflow: hidden;
+	background-color: beige;
+	position: absolute;
+}
+
+.statMax {
+	width: 100vw;
+	height: 80vh;
+	left: 0vw;
+	top: 17vh;
+	overflow-y: scroll;
+	background-color: beige;
+	position: absolute;
+}
+
+.map {
+	width: 100vw;
+	left: 0;
+	background-color: orange;
+}
+
+.mapD {
+	width: 50vw;
+	height: 40vh;
+	left: 50vw;
+	top: 57vh;
+	overflow: hidden;
+	background-color: goldenrod;
+	position: absolute;
+}
+
+.mapMax {
+	width: 100vw;
+	height: 80vh;
+	left: 0vw;
+	top: 17vh;
+	overflow-y: scroll;
+	background-color: goldenrod;
+	position: absolute;
+}
+/* end MAIN PART STYLES */
+
+#map {
+	width:50vw;
+	height:40vh;
+}
