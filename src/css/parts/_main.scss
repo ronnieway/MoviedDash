@@ -1,10 +1,4 @@
 /* MAIN PART STYLES */
-.chart {
-	width: 100vw;
-	left: 0;
-	background-color: gray;	
-}
-
 .chartD {
 	width: 50vw;
 	height: 40vh;
@@ -22,12 +16,6 @@
 	top: 17vh;
 	overflow-y: scroll;
 	position: absolute;	
-}
-
-.news {
-	width: 100vw;
-	left: 0;
-	background-color: violet;
 }
 
 .newsD {
@@ -49,12 +37,6 @@
 	position: absolute;
 }
 
-.stat {
-	width: 100vw;
-	left: 0;
-	background-color: white;
-}
-
 .statD {
 	width: 50vw;
 	top: 57vh;
@@ -72,12 +54,6 @@
 	top: 17vh;
 	overflow-y: scroll;
 	position: absolute;
-}
-
-.map {
-	width: 100vw;
-	left: 0;
-	background-color: orange;
 }
 
 .mapD {
@@ -100,8 +76,8 @@
 }
 
 #map {
-	width:50vw;
-	height:40vh;
+	width: 50vw;
+	height: 40vh;
 	border: 1px solid lightgray;
 	margin: 0 auto;
 }

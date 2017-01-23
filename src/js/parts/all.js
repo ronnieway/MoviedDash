@@ -376,3 +376,7 @@ function initMap() {
 		center: myLatLng
 	});
 }
+
+function hideMobMenu() {
+	$('#mobMenuButton').attr( 'aria-expanded', 'false');
+}

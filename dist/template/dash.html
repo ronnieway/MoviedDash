@@ -1,11 +1,12 @@
 <div class="mapD" ng-controller="getMap as map">
-	<h3 class="dashHeaders">Geo data</h3>
+	<h3 class="dashHeaders"><a ng-href="#/map">Geo data</a></h3>
+	<p class= "tableDesc">Geospatial data about top movie business</p>
 	<div id="map">
 	</div>
 </div>
 
-<div class="chartD table-responsive" ng-controller="getChart as chart">
-	<h3 class="dashHeaders">Top movies in cinema</h3>
+<div class="chartD table" ng-controller="getChart as chart">
+	<h3 class="dashHeaders"><a ng-href="#/chart">Top movies in cinema</a></h3>
 	<table class="table">
 		<tr>
 			<td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -25,7 +26,7 @@
 </div>
 
 <div class="newsD" ng-controller="getNews as news">
-	<h3 class="dashHeaders">Latest news</h3>
+	<h3 class="dashHeaders"><a ng-href="#/news">Latest news</a></h3>
 	<ul class="newsFeed" ng-repeat="x in news">
 		<li>
 			<a ng-href=" {{x.url}} "> {{x.title}} </a>
@@ -35,7 +36,7 @@
 </div>
 
 <div class="statD" ng-controller="getStat as stat">
-	<h3 class="dashHeaders">Statistics</h3>
+	<h3 class="dashHeaders"><a ng-href="#/stat">Statistics</a></h3>
 	<p class="tableDesc">Total movies gross at US market in 2016</p>
 	<table class="table table-hover">
 		<tr>

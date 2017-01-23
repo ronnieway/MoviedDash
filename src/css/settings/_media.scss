@@ -1,15 +1,146 @@
-/* up 767 @screen-xs-max*/
-@media (max-width: 767px) {
+@media (max-width: 500px) {
+	#mobMenuButton {
+		top: 5vh;
+		left: 85vw;
+		z-index: 88;
+		position: fixed;
+	}
 
+	.dropdown-menu {
+		width: 20vw;
+		position: fixed;
+		left: 20vw;
+		top: 13vh;
+	}
 }
+
+@media (max-width: 600px) {
+	.chartD, .newsD, .statD, .mapD {
+		width: 100vw;
+		left: 0vw;
+		overflow: hidden;
+		position: relative;
+		top: 0;
+		left: 0;	
+		height: auto;	
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+	}
+
+	#moreChart, #moreStat, #moreGeo, #MoreNews {
+		display: none;
+	}
+
+		.columnHeader, .columnHeader a, .columnHeader button {
+		font-size: 3.5vw !important;
+	}
+
+	.tableDesc, .newsFeed li, .posterOverview, .posterStart, .posterName {
+		font-size: 3.5vw;
+	}
+
+	#mobMenuButton {
+		top: 6vh;
+		right: 5vw;
+	}
+
+	#siteTitle {
+		font-size: 5vh;
+	}
+
+	.dropdown-menu {
+		width: 20vw;
+		position: fixed;
+		left: 72vw;
+		top: 11vh;
+	}
+
+	.dashHeaders, .dashHeaders a {
+		color: white;
+		background-color: #265a88;
+		line-height: 5vh;
+	}
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+	.chartD, .newsD, .statD, .mapD {
+		width: 100vw;
+		left: 0vw;
+		overflow: hidden;
+		position: relative;
+		top: 0;
+		left: 0;
+		height: auto;	
+		padding-top: 2vh;
+		padding-bottom: 2vh;
+	}
+
+	#moreChart, #moreStat, #moreGeo, #MoreNews {
+		display: none;
+	}
+
+		.columnHeader, .columnHeader a, .columnHeader button {
+		font-size: 3vw !important;
+	}
+
+	.tableDesc, .newsFeed li, .posterOverview, .posterStart, .posterName {
+		font-size: 2.5vw;
+	}
+
+		#mobMenuButton {
+		top: 8vh;
+		right: 3vw;
+	}
+
+	#siteTitle {
+		font-size: 5vh;
+	}
+
+	.dropdown-menu {
+		width: 20vw;
+		position: fixed;
+		left: 75vw;
+		top: 13vh;
+	}
+
+	.dashHeaders, .dashHeaders a {
+		color: white;
+		background-color: #265a88;
+		line-height: 5vh;
+	}
+}
+
 /* 768 @screen-sm-min - 991 @screen-sm-max */
 @media (min-width: 768px) and (max-width: 991px) {
+	.columnHeader, .columnHeader a, .columnHeader button {
+		font-size: 2vw !important;;
+	}
 
+	.tableDesc, .newsFeed li, .posterOverview, .posterStart, .posterName {
+		font-size: 2vw;
+	}
+
+	#siteTitle {
+		font-size: 4.5vh;
+	}
+
+	.dropdown-menu {
+		width: 20vw;
+		position: fixed;
+		left: 77vw;
+		top: 14vh;
+	}
 }
 
 /* 992 @screen-md-min - 1199 @screen-md-max */ 
 @media (min-width: 992px) and (max-width: 1199px) {
+	.columnHeader, .columnHeader a, .columnHeader button {
+		font-size: 1.5vw !important;;
+	}
 
+	.tableDesc, .newsFeed li, .posterOverview, .posterStart, .posterName {
+		font-size: 1.5vw;
+	}
 }
 
 /* 1200 @screen-lg-min up */

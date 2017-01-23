@@ -1,5 +1,4 @@
 /* HEADER STYLES */
-
 .name {
 	height: 17vh;
 	overflow: hidden;
@@ -15,7 +14,7 @@
 #youtubeDiv {
 	position: fixed;
 	top: 12vh;
-	left:10vw;
+	left: 10vw;
 	width: 80vw;
 	height: 85vh;
 	padding: 4vw auto;
@@ -25,10 +24,10 @@
 	border: 2px solid #265a88;
 }
 
-#youtubeDiv  iframe {
+#youtubeDiv iframe {
 	position: fixed;
 	top: 12vh;
-	left:10vw;
+	left: 10vw;
 	width: 75vw;
 	height: 85vh;
 	padding: 4vw;
@@ -42,7 +41,7 @@
 	margin: 0;
 	z-index: 33;
 	position: relative;
-	top: - 8vh;
+	top: -5vh;
 }
 
 #closeTrailer span {
@@ -80,7 +79,7 @@
 .siteDescription {
 	padding: 1vh 2vw 1vh 2vw;
 	margin-top: 1vh;
-	margin-right: 6vw;
+	margin-right: 0;
 	color: indigo;
 	background-color: beige;
 	border: 1px solid lightgray;
@@ -88,34 +87,34 @@
 
 #moreChart {
 	width: 7vw;
-	height: 4vh;
-	top: 52vh;
+	height: 5vh;
+	top: 51vh;
 	left: 42vw;
 }
 
 #moreStat {
 	width: 7vw;
-	height: 4vh;
-	top: 92vh;
+	height: 5vh;
+	top: 91vh;
 	left: 42vw;
 }
 
 #moreGeo {
 	width: 7vw;
-	height: 4vh;
-	top: 92vh;
+	height: 5vh;
+	top: 91vh;
 	left: 92vw;
 }
 
 #MoreNews {
 	width: 7vw;
-	height: 4vh;
-	top: 52vh;
+	height: 5vh;
+	top: 51vh;
 	left: 92vw;
 }
 
 #moreChart, #moreStat, #moreGeo, #MoreNews {
-	position:fixed;
+	position: fixed;
 	overflow: hidden;
 	z-index: 18;
 	color: white;
