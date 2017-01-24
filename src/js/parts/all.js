@@ -1,8 +1,11 @@
 var map;
-
 var app = angular.module('app', ['ngRoute', 'chart.js']);
 
-app.config(function($routeProvider) {
+function hideMobMenu() {
+	document.getElementById('#mobMenuButton').attr( 'aria-expanded', 'false');
+}
+
+app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl : 'template/dash.html'		
@@ -19,7 +22,7 @@ app.config(function($routeProvider) {
 	.when('/stat', {
 		templateUrl : 'template/stat.html'		
 	});
-});
+}]);
 
 app.controller('getStat', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
 	var prevOrder;
@@ -174,7 +177,6 @@ app.controller('getStat', ['$scope', '$http', '$filter', function($scope, $http,
 		}			
 		$scope.statLast1 = dataCellsArray;
 
-
 		var nameArray = [];
 		var totalGrossArray = [];
 		var firstWeekGrossArray = [];
@@ -212,7 +214,6 @@ app.controller('getStat', ['$scope', '$http', '$filter', function($scope, $http,
 			dataCellsArray.push(obRowCells);
 		}			
 		$scope.statLast2 = dataCellsArray;
-
 
 		var nameArray = [];
 		var totalGrossArray = [];
@@ -252,7 +253,6 @@ app.controller('getStat', ['$scope', '$http', '$filter', function($scope, $http,
 		}			
 		$scope.statLast3 = dataCellsArray;
 
-
 		var nameArray = [];
 		var totalGrossArray = [];
 		var firstWeekGrossArray = [];
@@ -275,7 +275,6 @@ app.controller('getChart', ['$scope', '$http', function($scope, $http) {
 		$scope.charts = response.data.results;
 	});
 }]);
-
 
 app.controller('getTrailer', ['$scope', '$http', function($scope, $http) {
 	var firstMovieID;
@@ -325,7 +324,6 @@ app.controller('getNews', ['$scope', '$http', function($scope, $http) {
 		console.log('news updated');
 		timerId = setTimeout(theNews, 120000);
 	}, 0);
-
 	
 }]);
 
@@ -345,16 +343,15 @@ app.controller('getMap', ['$scope', '$http', function($scope, $http) {
 		}		
 		$scope.cities = citiesArray;
 
-		initMap();
+		function initMap() {
+			var myLatLng = {lat: 30, lng: 0};
+			map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 2,
+				center: myLatLng
+			});
+		}
 
-//		for (var i=0; i<geoArray.length; i++) {
-//			var theLatLng = geoArray[i];
-//			var marker = new google.maps.Marker({
-//				position: theLatLng,
-//				title: 'Movie business is here!'
-//			});
-//			marker.setMap(map);
-//		}
+		initMap();
 
 		var markers = geoArray.map(function(location) {
 			return new google.maps.Marker({
@@ -363,20 +360,8 @@ app.controller('getMap', ['$scope', '$http', function($scope, $http) {
 			});
 		});
 
-			// Add a marker clusterer to manage the markers.
 		var markerCluster = new MarkerClusterer(map, markers,
-		{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+			{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'}
+		);
 	});
 }]);
-
-function initMap() {
-	var myLatLng = {lat: 30, lng: 0};
-	map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 2,
-		center: myLatLng
-	});
-}
-
-function hideMobMenu() {
-	$('#mobMenuButton').attr( 'aria-expanded', 'false');
-}

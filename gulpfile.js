@@ -235,7 +235,7 @@ gulp.task('jsRelease', function() {
 		babel({
 			presets: [es2015]
 		}),
-//		uglify(),
+		uglify(),
 		gulp.dest(myPath.dist.mainJS))
 	.on('error', notify.onError(function(err) {
 		return {
@@ -250,7 +250,7 @@ gulp.task('otherJSRelease', function() {
 		babel({
 			presets: [es2015]
 		}),
-//		uglify(),
+		uglify(),
 		gulp.dest(myPath.dist.indexFolder))
 	.on('error', notify.onError(function(err) {
 		return {
@@ -265,7 +265,7 @@ gulp.task('allJSRelease', function() {
 		babel({
 			presets: [es2015]
 		}),
-//		uglify(),
+		uglify(),
 		gulp.dest(myPath.dist.mainJS))
 	.on('error', notify.onError(function(err) {
 		return {
